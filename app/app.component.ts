@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {LocationStrategy, PlatformLocation, Location} from '@angular/common';
 
@@ -30,6 +31,14 @@ export class AppComponent implements OnInit{
         }
         else {
             return true;
+        }
+    }
+    public isLogin(path){
+        if(window.location.hash.includes(path)){
+            return true;
+        }
+        else {
+            return false;
         }
     }
 }

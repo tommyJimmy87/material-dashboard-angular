@@ -30,6 +30,14 @@ var AppComponent = (function () {
             return true;
         }
     };
+    AppComponent.prototype.isLogin = function (path) {
+        if (window.location.hash.includes(path)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',

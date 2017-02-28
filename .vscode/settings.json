@@ -1,0 +1,15 @@
+// Inserire le impostazioni in questo file per sovrascrivere quelle utente e predefinite.
+// place your settings in this file to overwrite default and user settings.
+{
+    "files.exclude": {
+        // include the defaults from VS Code
+        "**/.git": true,
+        "**/.DS_Store": true,
+
+        
+        // exclude .js and .js.map files, when in a TypeScript project
+        "**/*.js": { "when": "$(basename).ts"},
+        "**/*.js.map": true,
+        "**/*.css.map": true
+    }
+}
