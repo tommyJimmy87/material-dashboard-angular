@@ -24,6 +24,6 @@ exports.MODULE_COMPONENTS = [
     icons_component_1.IconsComponent,
     notifications_component_1.NotificationsComponent,
     typography_component_1.TypographyComponent,
-    maps_component_1.MapsComponent,
+    maps_component_1.MapsComponent
 ];
 //# sourceMappingURL=dashboard.routes.js.map

@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginModule } from './login/login.module';
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule }      from '@angular/common';
 import { RouterModule, CanActivate } from '@angular/router';
 import { HttpModule, BaseRequestOptions } from '@angular/http';
 import { AppComponent }   from './app.component';
@@ -21,6 +22,7 @@ import { FormsModule }   from '@angular/forms';
 
 @NgModule({
     imports:      [
+        CommonModule,
         BrowserModule,
         LoginModule,
         DashboardModule,

@@ -9,25 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var platform_browser_1 = require('@angular/platform-browser');
-var common_1 = require('@angular/common');
-var dashboard_routes_1 = require('./dashboard.routes');
-var DashboardModule = (function () {
-    function DashboardModule() {
+var websocket_service_1 = require('./../_services/websocket.service');
+var WEBSOCKET_URL = 'ws://localhost:8009';
+var ProgressiveService = (function () {
+    function ProgressiveService(wsService) {
+        this.messages = wsService
+            .connect(WEBSOCKET_URL)
+            .map(function (response) {
+            var data = JSON.parse(response.data);
+            var data1 = JSON.parse(response.data);
+            return response.data;
+        });
     }
-    DashboardModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                common_1.CommonModule,
-                platform_browser_1.BrowserModule,
-                router_1.RouterModule.forChild(dashboard_routes_1.MODULE_ROUTES)
-            ],
-            declarations: [dashboard_routes_1.MODULE_COMPONENTS]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], DashboardModule);
-    return DashboardModule;
+    ProgressiveService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [websocket_service_1.WebSocketService])
+    ], ProgressiveService);
+    return ProgressiveService;
 }());
-exports.DashboardModule = DashboardModule;
-//# sourceMappingURL=dashboard.module.js.map
+exports.ProgressiveService = ProgressiveService;
+//# sourceMappingURL=progressivo.sevice.js.map

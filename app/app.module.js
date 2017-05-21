@@ -17,6 +17,7 @@ var login_component_1 = require('./login/login.component');
 var login_module_1 = require('./login/login.module');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var common_1 = require('@angular/common');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
@@ -24,7 +25,7 @@ var dashboard_module_1 = require('./dashboard/dashboard.module');
 var sidebar_module_1 = require('./sidebar/sidebar.module');
 var footer_module_1 = require('./shared/footer/footer.module');
 var navbar_module_1 = require('./shared/navbar/navbar.module');
-var common_1 = require('@angular/common');
+var common_2 = require('@angular/common');
 var app_routes_1 = require('./app.routes');
 var forms_1 = require('@angular/forms');
 var AppModule = (function () {
@@ -33,6 +34,7 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [
+                common_1.CommonModule,
                 platform_browser_1.BrowserModule,
                 login_module_1.LoginModule,
                 dashboard_module_1.DashboardModule,
@@ -45,7 +47,7 @@ var AppModule = (function () {
                 app_routes_1.routing
             ],
             declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, login_component_1.LoginComponent],
-            providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy },
+            providers: [{ provide: common_2.LocationStrategy, useClass: common_2.HashLocationStrategy },
                 auth_guard_1.AuthGuard,
                 authentication_service_1.AuthenticationService,
                 user_service_1.UserService,

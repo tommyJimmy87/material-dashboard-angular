@@ -8,6 +8,9 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { TypographyComponent } from './typography/typography.component';
 import { MapsComponent } from './maps/maps.component';
 import { AuthGuard } from './../_guards/auth.guard';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule }      from '@angular/common';
+
 
 export const MODULE_ROUTES: Route[] =[
     { path: 'dashboard', component: HomeComponent, canActivate: [AuthGuard] },
@@ -27,5 +30,5 @@ export const MODULE_COMPONENTS = [
     IconsComponent,
     NotificationsComponent,
     TypographyComponent,
-    MapsComponent,
+    MapsComponent
 ]

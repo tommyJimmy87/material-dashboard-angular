@@ -9,16 +9,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var websocket_service_1 = require('./../../_services/websocket.service');
+var progressivo_sevice_1 = require('./../../_services/progressivo.sevice');
 var TableComponent = (function () {
-    function TableComponent() {
+    function TableComponent(progressiveService) {
+        var _this = this;
+        this.progressiveService = progressiveService;
+        this.messages = new Array();
+        progressiveService.messages.subscribe(function (msg) {
+            try {
+                var message = JSON.parse(JSON.parse(msg));
+                var founded = false;
+                _this.messages.forEach(function (element) {
+                    if (element.idtreno === message.idtreno) {
+                        founded = true;
+                        element.progressivo = message.progressivo;
+                    }
+                });
+                if (!founded) {
+                    _this.messages.push(message);
+                }
+            }
+            catch (error) {
+            }
+        });
     }
     TableComponent = __decorate([
         core_1.Component({
             selector: 'table-cmp',
             moduleId: module.id,
-            templateUrl: 'table.component.html'
+            //template: ,
+            templateUrl: 'table.component.html',
+            providers: [progressivo_sevice_1.ProgressiveService, websocket_service_1.WebSocketService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [progressivo_sevice_1.ProgressiveService])
     ], TableComponent);
     return TableComponent;
 }());
